@@ -1,0 +1,279 @@
+html, body, div, span, applet, object, iframe,
+			h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+			a, abbr, acronym, address, big, cite, code,
+			del, dfn, em, img, ins, kbd, q, s, samp,
+			small, strike, strong, sub, sup, tt, var,
+			b, u, i, center,
+			dl, dt, dd, ol, ul, li,
+			fieldset, form, label, legend,
+			table, caption, tbody, tfoot, thead, tr, th, td,
+			article, aside, canvas, details, embed, 
+			figure, figcaption, footer, header, hgroup, 
+			menu, nav, output, ruby, section, summary,
+			time, mark, audio, video {
+				margin: 0;
+				padding: 0;
+				border: 0;
+				font-size: 100%;
+				font: inherit;
+				vertical-align: baseline;
+			}
+			/* HTML5 display-role reset for older browsers */
+			article, aside, details, figcaption, figure, 
+			footer, header, hgroup, menu, nav, section {
+				display: block;
+			}
+			body {
+				line-height: 1;
+			}
+			ol, ul {
+				list-style: none;
+			}
+			blockquote, q {
+				quotes: none;
+			}
+			blockquote:before, blockquote:after,
+			q:before, q:after {
+				content: '';
+				content: none;
+			}
+			table {
+				border-collapse: collapse;
+				border-spacing: 0;
+			}
+
+
+body {
+	box-sizing: border-box;
+}
+
+@mixin btn () {
+	position: absolute;
+	right: 32px;
+	top: 7%;
+	width: 32px;
+	height: 32px;
+	opacity: 1;
+}
+@mixin btn_hover () {
+	opacity: 0.8;
+	cursor: pointer;
+}
+@mixin btn_line () {
+	position: absolute;
+	left: 15px;
+	content: ' ';
+	height: 20px;
+	width: 2px;
+	background-color: #333;
+}
+
+input::placeholder {
+	font-size: 15px;
+	color: red;
+}
+
+		// HEADER
+button {
+	cursor: pointer;
+}
+header {
+	height: 70px;
+	background: #C0C0C0;
+
+	#registration {
+	max-width: 1170px;
+    margin: auto;
+    display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	}
+
+	#box_btn {
+		margin-top: 15px;
+
+		button {
+			padding: 8px 20px;
+    		border-radius: 5px;
+    		border: solid 2px #800000;
+    		font-size: 15px;
+    		background: #fff;
+    		&:hover {
+    			background: red;
+    		}
+    		&:first-child {
+    			margin-right: 20px;
+    		}
+		}
+	}
+}
+
+			// MAIN
+
+main {
+	#background {
+    object-fit: cover;
+    height: 100vh;
+    width: 100%;
+	}
+}
+
+			// popUp singUp
+
+#container_popUp_singUp, #container_popUp_singIn {
+	display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    #btn_close_singUp {
+     		@include btn ();
+		}
+		#btn_close_singUp:hover {
+			@include btn_hover ();
+		}
+		#btn_close_singUp:before, #btn_close_singUp:after {
+			@include btn_line ();
+			background-color: red;
+		}
+		#btn_close_singUp:before {
+			transform: rotate(45deg);
+		}
+		#btn_close_singUp:after {
+			transform: rotate(-45deg);
+		}
+    #singUp_window, #singIn_window {
+	    background-color: #778899;
+	    color: #fff;
+	    width: 75%;
+	    padding: 40px 30px;
+	    position: absolute;
+	    top: 50%;
+	    left: 50%;
+    	transform: translate(-50%, -50%);
+    	box-shadow: 0 0 30px rgba(18, 17, 12, 0.5);
+    	border-radius: 10px;
+    	z-index: 90;
+	}
+	#form_error {
+    	font-size: 20px;
+    	color: red;
+    	z-index: 100;
+    	display: none;
+     	#btn_close {
+     		@include btn ();
+		}
+		#btn_close:hover {
+			@include btn_hover ();
+		}
+		#btn_close:before, #btn_close:after {
+			@include btn_line ();
+		}
+		#btn_close:before {
+			transform: rotate(45deg);
+		}
+		#btn_close:after {
+			transform: rotate(-45deg);
+		}
+	}
+	#form_singUp, #form_popUp_singIn {
+    	background: rgba(255, 186, 0, 0.7);
+    	padding: 15px 30px;
+    	display: flex;
+    	flex-direction: column;
+	}
+	#formAvatar {
+    	text-align: center;
+	}
+	#label_userAvatar {
+    	cursor: pointer;
+	}
+
+	#icon_avatar {
+    	width: 150px;
+    	height: 150px;
+    	border-radius: 50%;
+    	display: block;
+    	margin: auto;
+    	margin-top: 10px;
+	}
+	#label_userAvatar_text {
+    	display: block;
+	}
+	#p_err {
+    	display: none;
+    	color: red;
+    	font-size: 20px;
+	}
+	label {
+		font-size: 20px;
+		padding: 25px 0 5px 0;
+	}
+	input {
+		padding: 10px;
+		border: solid 2px blue;
+    	border-radius: 10px;
+    	&:hover {
+    		border: solid 2px pink;
+    	}
+    	&:focus {
+    		border: solid 2px yellow;
+    		outline: none;
+		}
+	}
+	#login_err, #password_err{
+		display: none;
+		padding: 0;
+		color: #FF0000;
+    }
+    #btn_submit, #btn_singIn {
+		padding: 10px 15px;
+		width: fit-content;
+		border-radius: 5px;
+		align-self: center;
+		margin-top: 40px;
+    	border: solid 3px green;
+    	background: red;
+    	&:hover {
+    		border: solid 3px blue;
+    		background: green;
+    	}
+	}
+	input[type="file"] {
+    	visibility: hidden;
+    	position: absolute;
+	}
+
+}
+
+
+			// popUp singIn
+
+#container_popUp_singIn {
+	#btn_close_singIn {
+     	@include btn ();
+		top: 12%;
+	}
+	#btn_close_singIn:hover {
+		@include btn_hover ();
+	}
+	#btn_close_singIn:before, #btn_close_singIn:after {
+		@include btn_line ();
+	}
+	#btn_close_singIn:before {
+		transform: rotate(45deg);
+	}
+	#btn_close_singIn:after {
+		transform: rotate(-45deg);
+	}
+	#error_singIn_login, #error_singIn_password{
+		font-size: 20px;
+		color: red;
+		padding-top: 5px;
+		display: none;
+	}
+
+	
+}

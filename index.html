@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Project</title>
+    <link rel="stylesheet" href="./dist/style.css">
+</head>
+
+<body>
+    <h1 class="naming">Hello</h1>
+    <header>
+        <wrapper id="registration">
+            <div id="box_btn">
+                <button id="header__header_btn_singUp" type="submit">Sing Up</button>
+                <button id="header__header_btn_singIn" type="submit">Sing In</button>
+            </div>
+        </wrapper>
+    </header>
+    <main id="main">
+        <img id="background" src="image/mountain-landscape-2031539_1280.jpg" alt="#">
+    </main>
+    <wrap id="container_popUp_singUp">
+        <div id="singUp_window">
+        	<span id="btn_close_singUp"></span>
+            <div id="form_error">
+                <span id="btn_close"></span>
+                <p>One of the input fields is not filled</p>
+            </div>
+            <form id="form_singUp" action="#" method="POST" autocomplete="off">
+                <div id="formAvatar">
+                    <label id="label_userAvatar" for="userAvatar">
+                        <p id="label_userAvatar_text">Add your avatar</p>
+                        <input id="userAvatar" class="custom_input" required type="file">
+                        <img id="icon_avatar" src="image/smile.jpg" alt="">
+                        <p id="p_err">Загружен неправильный формат данных</p>
+                    </label>
+                </div>
+                <label for="userLogin">Login</label>
+                <input id="userLogin" required placeholder="login" name="login" type="text">
+                <div id="login_err">Name must be lowercase WARNING! Caps lock is ON</div>
+                <label for="userPassword">Password</label>
+                <input id="userPassword" required placeholder="password  A-Z0-9" name="userPass" type="password">
+                <div id="password_err">The password must be letters, capital letters and at least 7 characters</div>
+                <label for="userEmail">Email</label>
+                <input id="userEmail" required placeholder="somebody@example.com" type="email">
+                <button id="btn_submit" type="submit">Send</button>
+            </form>
+        </div>
+    </wrap>
+    <wrap id="container_popUp_singIn">
+
+        <div id="singIn_window">
+        	<span id="btn_close_singIn"></span>
+            <div id="form_popUp_singIn">
+                <label for="singIn_login">Login</label>
+                <input id="singIn_login" type="text" placeholder="Login" value="">
+                <label id="error_singIn_login" for="singIn_login">
+user is not registered</label>
+                <label for="singUp_password">Password</label>
+                <input id="singUp_password" type="password" placeholder="Password" value="">
+                <label id="error_singIn_password" for="singUp_password">incorrect password</label>
+                <button id="btn_singIn" type="submit">Sing In</button>
+            </div>
+        </div>
+    </wrap>
+    <script src="./dist/main.js"></script>
+</body>
+
+</html>
